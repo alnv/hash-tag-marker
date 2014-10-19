@@ -99,7 +99,7 @@
 					margin: 5px;
 					
 					/*
-					* text color have to be unvisible
+					* text color unsichtbar machen
 					*/
 					color: rgba(0,0,0,0);
 					
@@ -148,11 +148,33 @@
 			var content = document.querySelector('.content');
 			var hashtags = document.querySelector('.hashtags');
 			var str;
+			
+			// Umsetzung mit einem keyup Event Handler
+			/*
 			content.addEventListener('keyup', function(){
 				str = content.value;
 				str = str.replace(/#([a-zA-Z0-9]+)/g, '<span class="tag">#'+'$1'+'</span>');
 				hashtags.innerHTML = str;
 			});
+			*/
+			
+			// oder mit RequestAnimationFrame
+			
+			window.requestAnimFrame = (function(){
+				return window.requestAnimationFrame ||
+					window.webkitRequestAnimationFrame ||
+					window.mozRequestAnimationFrame    ||
+					function( callback ){window.setTimeout(callback, 1000 / 60);};
+			})();
+			
+			(function loop(){
+				requestAnimFrame(loop);
+				
+				str = content.value;
+				str = str.replace(/#([a-zA-Z0-9]+)/g, '<span class="tag">#'+'$1'+'</span>');
+				hashtags.innerHTML = str;
+				
+			})();
 			
 		})();
 		
