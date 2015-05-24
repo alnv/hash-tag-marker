@@ -3,7 +3,7 @@ hash-tag-marker
 
 HashTagMarker - Tutorial: Mit Javascript Hash Tags markieren!
 
-- [Author](http://alexandernaumov.de)
+- Developer: [Alexander Naumov](http://alexandernaumov.de)
 - [Hashtags like facebook](http://alexandernaumov.de/blog/hashtags-in-einem-textarea-hervorheben.html)
 
 ```html
